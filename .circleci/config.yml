@@ -10,10 +10,10 @@ workflows:
             only:
               - main
       - deploy:
-        filters:
-          branches:
-            only:
-              - main
+          filters:
+            branches:
+              only:
+                - main
           requires: 
             - build          
 
@@ -42,5 +42,5 @@ jobs:
     steps:
       - run:
         name: deploy-application
-        command: ssh -o StrictHostKeyChecking=no $EC2_USERNAME@EC2_PUBLIC_DNS "rm -rf exampleapplication/;git clone https://github.com/OHNCI/exampleapplication.git; source
+        command: ssh -o StrictHostKeyChecking=no $EC2_USERNAME@$EC2_PUBLIC_DNS "rm -rf exampleapplication/;git clone https://github.com/OHNCI/exampleapplication.git; source
         exampleapplication/deploy.sh"
