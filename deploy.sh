@@ -4,3 +4,4 @@ pm2 stop example_app
 cd exampleapplication/
 npm install
 pm2 start ./bin/www --name example_app
+#comment
